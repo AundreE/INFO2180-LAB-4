@@ -28,8 +28,8 @@ function overBoundary() {
 
 function overEnd() {
     if(loser) {
-        alert("Nice try but u were not successful :( ");
+        document.getElementById("status").innerHTML ="Nice try but u were not successful :(";
     } else {
-        alert("You win!");
+        document.getElementById("status").innerHTML ="You win!";
     }
 }
