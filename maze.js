@@ -1,13 +1,26 @@
-window.onload = function() {
+var loser = false;  // whether the user has hit a wall
+
+window.onload = function() {    
+   document.getElementById("end").onmouseover = overEnd;
     var boundaries = document.querySelectorAll("div#maze div.boundary");
-    for (var x = 0; x < boundaries.length; x++) {
-        boundaries[x].onmouseover = myFunction;
+    for (var i = 0; i < boundaries.length; i++) {
+        boundaries[i].onmouseover = overBoundary;
     }
 };
 
-function myFunction() {
+function overBoundary() {
+    loser = true;
     var boundaries = document.querySelectorAll("div#maze div.boundary");
-    for (var x = 0; x < boundaries.length; x++) {
-        boundaries[x].style.backgroundColor = "#ff8888";
+    for (var i = 0; i < boundaries.length; i++) {
+        boundaries[i].classList.add("youlose");
+    }
+}
+
+
+function overEnd() {
+    if(loser) {
+        alert("Nice try but u were not successful :( ");
+    } else {
+        alert("You win!");
     }
 }
